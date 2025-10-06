@@ -26,6 +26,6 @@ class MainActivity : AppCompatActivity() {
         webView.webViewClient = WebViewClient()
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
-        webView.loadUrl("https://lia.bzk9x.top/preview")
+        webView.loadUrl("https://google.com/")
     }
 }

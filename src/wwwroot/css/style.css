@@ -75,4 +75,30 @@ nav span {
 
 .lia {
     flex: 1;
+    display: flex;
 }
+
+.preview {
+    flex: 2;
+    display: grid;
+    place-items: center;
+}
+
+.editor {
+    flex: 1;
+}
+
+.phone {
+    width: 275px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 32px;
+    border: 5px solid #191919;
+    overflow: hidden;
+}
+
+.phone iframe {
+    width: 275px;
+    height: 500px;
+}
+
