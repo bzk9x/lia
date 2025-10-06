@@ -17,7 +17,7 @@
             <span>Lia</span>
             <div class="drag-area"></div>
             <div class="toolbar">
-                <button>Build</button>
+                <button id="lia-build">Build</button>
             </div>
             <div class="window-controls">
                 <div class="window-control" title="Minimize" id="window-control-minimize"></div>
@@ -27,13 +27,28 @@
         <div class="lia">
             <div class="preview">
                 <div class="phone">
-                    <div class="nav-bar">
-
-                    </div>
                     <iframe src="https://tether.bzk9x.top" frameborder="0"></iframe>
                 </div>
             </div>
-            <div class="editor"></div>
+            <div class="editor">
+                <div class="editor-form">
+                    <div class="form-group">
+                        <label for="app-name">App name</label>
+                        <input type="text" id="app-name" placeholder="My App">
+                    </div>
+                    <div class="form-group">
+                        <label for="app-package">App package</label>
+                        <div class="package-input">
+                            <span class="package-prefix">com.lia.</span>
+                            <input type="text" id="app-package" placeholder="myapp">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="app-url">URL</label>
+                        <input type="url" id="app-url" placeholder="https://example.com">
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <script src="renderer/renderer.js"></script>
