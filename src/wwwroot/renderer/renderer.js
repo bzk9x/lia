@@ -10,4 +10,24 @@ async function setWallpaperImage() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', setWallpaperImage);
+function setupWindowControls() {
+    const minimizeButton = document.getElementById('window-control-minimize');
+    const closeButton = document.getElementById('window-control-close');
+
+    if (minimizeButton) {
+        minimizeButton.addEventListener('click', () => {
+            window.windowControls.minimize();
+        });
+    }
+
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            window.windowControls.close();
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    setWallpaperImage();
+    setupWindowControls();
+});

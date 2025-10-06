@@ -4,6 +4,11 @@ contextBridge.exposeInMainWorld('wallpaper', {
     getSystemWallpaper: () => ipcRenderer.invoke('get-system-wallpaper')
 });
 
+contextBridge.exposeInMainWorld('windowControls', {
+    minimize: () => ipcRenderer.send('window-minimize'),
+    close: () => ipcRenderer.send('window-close')
+});
+
 window.addEventListener('DOMContentLoaded', () => {
     const replaceText = (selector, text) => {
       const element = document.getElementById(selector);

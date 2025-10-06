@@ -46,6 +46,14 @@ function createWindow() {
     }
   });
 
+  ipcMain.on('window-minimize', () => {
+    win.minimize();
+  });
+
+  ipcMain.on('window-close', () => {
+    win.close();
+  });
+
   win.loadFile('src/wwwroot/index.html');
 }
 
