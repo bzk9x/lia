@@ -12,44 +12,22 @@ class Program
 
     static void Main(string[] args)
     {
-        Console.WriteLine("Getting system wallpaper path...\n");
-
         string wallpaperPath = GetWallpaperUsingSystemParametersInfo();
         
-        if (!string.IsNullOrEmpty(wallpaperPath))
+        if (!string.IsNullOrEmpty(wallpaperPath) && File.Exists(wallpaperPath))
         {
-            Console.WriteLine($"Wallpaper Path: {wallpaperPath}");
-            
-            if (File.Exists(wallpaperPath))
-            {
-                FileInfo fileInfo = new FileInfo(wallpaperPath);
-                Console.WriteLine($"File Size: {fileInfo.Length / 1024.0:F2} KB");
-                Console.WriteLine($"Last Modified: {fileInfo.LastWriteTime}");
-            }
-            else
-            {
-                Console.WriteLine("Note: File path retrieved but file does not exist at this location.");
-            }
-        }
-        else
-        {
-            Console.WriteLine("Could not retrieve wallpaper using SystemParametersInfo.");
+            Console.WriteLine(wallpaperPath);
+            return;
         }
 
-        Console.WriteLine("\n--- Alternative Method (Registry) ---");
         string registryWallpaper = GetWallpaperFromRegistry();
-        
-        if (!string.IsNullOrEmpty(registryWallpaper))
+        if (!string.IsNullOrEmpty(registryWallpaper) && File.Exists(registryWallpaper))
         {
-            Console.WriteLine($"Registry Wallpaper: {registryWallpaper}");
-        }
-        else
-        {
-            Console.WriteLine("Could not retrieve wallpaper from registry.");
+            Console.WriteLine(registryWallpaper);
+            return;
         }
 
-        Console.WriteLine("\nPress any key to exit...");
-        Console.ReadKey();
+        Environment.Exit(1);
     }
 
     static string GetWallpaperUsingSystemParametersInfo()
