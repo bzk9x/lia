@@ -1,12 +1,12 @@
 async function setWallpaperImage() {
     try {
-        const wallpaperData = await window.wallpaper.getSystemWallpaper();
+        const wallpaperData = await window.api.wallpaper.getSystemWallpaper();
         const bgImage = document.getElementById('bg-image');
         if (bgImage) {
             bgImage.src = wallpaperData;
         }
     } catch (error) {
-        console.error('Error setting wallpaper:', error);
+        window.api.console.error('Error setting wallpaper:', error);
     }
 }
 
@@ -16,13 +16,13 @@ function setupWindowControls() {
 
     if (minimizeButton) {
         minimizeButton.addEventListener('click', () => {
-            window.windowControls.minimize();
+            window.api.windowControls.minimize();
         });
     }
 
     if (closeButton) {
         closeButton.addEventListener('click', () => {
-            window.windowControls.close();
+            window.api.windowControls.close();
         });
     }
 }
